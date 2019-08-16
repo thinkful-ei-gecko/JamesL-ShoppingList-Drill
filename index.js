@@ -6,18 +6,22 @@ $(function(){
         $('#shopping-list-entry').val('');
 
         //if adding 'fish' as value->will append fish to shopping list
-        $('.shopping-list').append(`<li>
-            <span class="shopping-item">${shoppingItem}</span>
-            <div class="shopping-item-controls">
-              <button class="shopping-item-toggle">
-                <span class="button-label">check</span>
-              </button>
-              <button class="shopping-item-delete">
-                <span class="button-label">delete</span>
-              </button>
-            </div>
-          </li>`);
-        
+        if(shoppingItem !== ''){
+            $('.shopping-list').append(`<li>
+                <span class="shopping-item">${shoppingItem}</span>
+                <div class="shopping-item-controls">
+                <button class="shopping-item-toggle">
+                    <span class="button-label">check</span>
+                </button>
+                <button class="shopping-item-delete">
+                    <span class="button-label">delete</span>
+                </button>
+                </div>
+            </li>`);
+        }
+        else{
+            alert('Need valid item')
+        }
     });
 
     $('.shopping-list').on('click', '.shopping-item-toggle', event => {
